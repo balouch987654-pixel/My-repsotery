@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Morgan | Graphic Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.8)), url('https://images.unsplash.com/photo-1523726491678-bf852e717f6a?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-btns {
+            animation: fadeIn 1.5s ease;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--light);
+        }
+        
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            margin: 5px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-category {
+            color: var(--secondary);
+        }
+        
+        /* Testimonials */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .testimonial-role {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .testimonial-dot.active {
+            background: var(--secondary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--dark);
+            color: white;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            background: #c0392b;
+        }
+        
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background: white;
+                width: 80%;
+                height: calc(100vh - 70px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Design<span>Alchemy</span></a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Creative Graphic Designer</h1>
+            <p class="hero-subtitle">My work blends beauty with purpose, creating designs that resonate with people and reflect your unique story</p>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn">View My Work</a>
+                <a href="#contact" class="btn" style="background: transparent; border: 2px solid rgb(252, 249, 249); margin-left: 15px;">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="W.jpg" alt="Alex Morgan">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Hello! I'M MUHAMMAD HASEEB</h3>
+                    <p>As a graphic designer with 7+ years of experience, I specialize in crafting visual identities and marketing materials that make brands stand out.</p>
+                    <p>I believe design should be clean, purposeful, and emotionally engaging — not just beautiful, but effective.</p>
+                    
+                    <div class="skills">
+                        <div class="skill">
+                            <div class="skill-name">
+                                <span>Branding & Identity</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill">
+                            <div class="skill-name">
+                                <span>UI/UX Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill">
+                            <div class="skill-name">
+                                <span>Print Design</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill">
+                            <div class="skill-name">
+                                <span>Illustration</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <h2 class="section-title">My Portfolio</h2>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Logo Design">Logo Design</button>
+                <button class="filter-btn" data-filter="POST">POST DESIGN</button>
+                <button class="filter-btn" data-filter="BUSINESS">BUSINESS CARDS</button>
+                <button class="filter-btn" data-filter="packaging">FLYERS</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="Logo Design">
+                    <img src="Rising-Phoenix-Modern-Logo-Template.jpg" alt="Branding Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">EcoLife Brand Identity</h3>
+                        <p class="portfolio-category">LOGO DESIGN</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="POST">
+                    <img src="4EG.jpg" alt="Web Design Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">TechSolutions Website</h3>
+                        <p class="portfolio-category">POST DESIGN</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="BUSINESS CARDS">
+                    <img src="download (1).jpg" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Food Magazine Layout</h3>
+                        <p class="portfolio-category">CARDS</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="FLYERS">
+                    <img src="Professional-Business-flyer-Free-Download-scaled.jpg" alt="Packaging Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">BrewCraft Packaging</h3>
+                        <p class="portfolio-category">FLYERS</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="Logo Design">
+                    <img src="download.jpg" alt="Branding Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">UrbanFit Logo & Identity</h3>
+                        <p class="portfolio-category">Logo Design</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="BUSINESS CARDS">
+                    <img src="data:image/jpeg;base64,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" alt="Web Design Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Fashion E-commerce UI</h3>
+                        <p class="portfolio-category">CARDS</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="POST">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBToK9yNdY-Z4MaTsIib7sNrSpoiKM5_V7jw&s" alt="Web Design Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">TechSolutions Website</h3>
+                        <p class="portfolio-category">POST DESIGN</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="POST">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMsAUdgCUMieAOBX-H6HoqO6bJ-pYsG8Yt9A&s" alt="Web Design Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">TechSolutions Website</h3>
+                        <p class="portfolio-category">POST DESIGN</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="POST">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFmGeb47Jn6_rlpWnQBe2zcblig4OfjJwuxA&s" alt="Web Design Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">TechSolutions Website</h3>
+                        <p class="portfolio-category">POST DESIGN</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="POST">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYlHsKFD5hcDAXWs7lyZdT1YwoP7McR9WjTw&s" alt="Web Design Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">TechSolutions Website</h3>
+                        <p class="portfolio-category">POST DESIGN</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            
+            <div class="testimonials-container">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"PixelCrafts redefined our visual identity. The refreshed logo and cohesive design system truly reflect our values and give us a strong presence in the market"</p>
+                    <h4 class="testimonial-author">Sarah Johnson</h4>
+                    <p class="testimonial-role">CEO, EcoLife</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Thanks to Alchemy, our website not only looks better but performs better too — conversions are up by 45% since the redesign."</p>
+                    <h4 class="testimonial-author">Michael Chen</h4>
+                    <p class="testimonial-role">Marketing Director, TechSolutions</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Alchemy’s packaging design for our craft beer has been a hit — daily compliments keep rolling in, and sales are up 65% since the rebrand."</p>
+                    <h4 class="testimonial-author">Jessica Williams</h4>
+                    <p class="testimonial-role">Founder, BrewCraft</p>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                    <div class="testimonial-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Pakistan, Jail Road Bahawalpur</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>haseebkha687@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+92 3226655291</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Monday-Friday: 9AM - 6PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-input" placeholder="Your Message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer>
+<div class="container">
+    <div class="social-links">
+        <a href="https://www.behance.net/for_you" class="social-link" target="_blank">
+            <i class="fab fa-behance"></i>
+        </a>
+        <a href="https://www.facebook.com/" class="social-link" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-facebook-f"></i>
+</a>
+        </a>
+        <a href="https://www.instagram.com/apka-username/" class="social-link" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/feed/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+</div>
+        <p class="copyright">&copy; 2025 Alex Morgan. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+   
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                hamburger.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Portfolio Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = dot.getAttribute('data-index');
+                
+                // Remove active class from all testimonials and dots
+                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                testimonialDots.forEach(d => d.classList.remove('active'));
+                
+                // Add active class to selected testimonial and dot
+                testimonials[index].classList.add('active');
+                dot.classList.add('active');
+            });
+        });
+        
+        // Auto rotate testimonials
+        let testimonialIndex = 0;
+        function rotateTestimonials() {
+            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+            
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonialDots.forEach(d => d.classList.remove('active'));
+            
+            testimonials[testimonialIndex].classList.add('active');
+            testimonialDots[testimonialIndex].classList.add('active');
+        }
+        
+        setInterval(rotateTestimonials, 5000);
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+        
+    // ... (your existing JavaScript code remains the same) ...
+    
+    // Form submission to Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/AKfycbygfsxoy8N5iwOaN4bF8oEn6bnz0uY8jc2C9rKMYaRelGPJYsEDBBaS3b3kHTI95eho/exec"; // Replace with your Google Apps Script URL
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        const formData = {
+            name: contactForm.querySelector('input[placeholder="Your Name"]').value,
+            email: contactForm.querySelector('input[placeholder="Your Email"]').value,
+            message: contactForm.querySelector('textarea[placeholder="Your Message"]').value,
+            timestamp: new Date().toLocaleString()
+        };
+        
+        fetch(scriptURL, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            alert('Message sent successfully! I will get back to you soon.');
+            contactForm.reset();
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert('There was an error sending your message. Please try again or contact me directly at haseebkha687@gmail.com');
+        })
+        .finally(() => {
+            // Restore button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
+    });
+
+     const arrowButton = document.getElementById('arrowButton');
+
+    arrowButton.addEventListener('click', () => {
+      arrowButton.classList.toggle('arrow-up');
+    });
+
+
+    </script>
+</body>
+</html>
